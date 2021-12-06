@@ -11,15 +11,9 @@ public class Product {
         this.rate = rate;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public double getRate() {
-        return rate;
+    @Override
+    public String toString() {
+        return String.format("Name: %s, price: %.2f, rate: %.2f%n", name, price, rate);
     }
 }

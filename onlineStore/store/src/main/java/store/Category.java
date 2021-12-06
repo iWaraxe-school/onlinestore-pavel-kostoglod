@@ -1,29 +1,26 @@
 package store;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Category {
-    private final String name;
-    private ArrayList<Product> productList = new ArrayList<Product>();
+    private final CategoryNames name;
+    private final ArrayList<Product> productList = new ArrayList<Product>();
 
-    public Category(String name) {
+    public Category(CategoryNames name) {
         this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public List<Product> getProductList() {
-        return productList;
-    }
-
-    public void setProductList(ArrayList<Product> productList) {
-        this.productList = productList;
     }
 
     public void setProductItem(Product product) {
         this.productList.add(product);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder info = new StringBuilder();
+        info.append(String.format("Category name: %s. The list of products: %n", name));
+        for (Product product: productList) {
+            info.append(product.toString());
+        }
+        return info.toString();
     }
 }
