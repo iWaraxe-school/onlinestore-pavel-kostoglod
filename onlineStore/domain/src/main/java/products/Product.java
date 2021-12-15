@@ -1,4 +1,4 @@
-package store;
+package products;
 
 public class Product {
     private final String name;

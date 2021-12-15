@@ -38,14 +38,14 @@ Do not merge it yourself!
 
 Before start creating source code, read carefully all materials about OOP. It is not only 3 principles for interview;)
 
-Store functionality should be based on above principles.
+store functionality should be based on above principles.
 
 Classes to create:
 
 - `Product` with such attributes as [name, rate, price]
 - `Category` classes with the name attribute, for each store category [bike, phone, milk] and products list
-- `Store` - class that should handle category list
-- `RandomStorePopulator` - utility class that will populate out store/category with fake data using `Faker` lib
+- `store` - class that should handle category list
+- `populator.RandomStorePopulator` - utility class that will populate out store/category with fake data using `Faker` lib
 - `StoreApp` - class with main method to execute our store scenario.
 
 When invoke main method, application should init store with categories and products and `pretty` print this data.

@@ -20,6 +20,6 @@ To handle our project dependencies and source code build we will use `Maven`.
 Please crete multi-module maven project in `Idea`, with such modules:
 
 1. parent (this is general store module)
-2. domain
+2. categories
 3. store
-4. consoleApp   
+4. StoreApp   

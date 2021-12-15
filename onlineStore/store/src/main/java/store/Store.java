@@ -1,13 +1,19 @@
 package store;
 
+import categories.Category;
+import categories.CategoryNames;
+import populator.RandomStorePopulator;
+import products.Product;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-
 public class Store {
-    private final ArrayList<Category> categoryList = new ArrayList<Category>();
+    private final List<Category> categoryList = new ArrayList<Category>();
 
-    public void fillStore() {
+    private void fillStore() {
+
         RandomStorePopulator populator = new RandomStorePopulator();
 
         for (CategoryNames category : CategoryNames.values()) {
@@ -19,16 +25,17 @@ public class Store {
                 Product product = new Product(
                         populator.getProductName(category),
                         populator.getProductPrice(),
-                        populator.getProductRate());
+                        populator.getProductRate()
+                );
                 c.setProductItem(product);
             }
             categoryList.add(c);
         }
     }
 
-    public void showInfo() {
+    private void showInfo() {
         System.out.println("The list of the categories and products in the store:");
-        for (Category category: categoryList) {
+        for (Category category : categoryList) {
             System.out.println(category.toString());
         }
     }
