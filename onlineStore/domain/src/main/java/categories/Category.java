@@ -1,10 +1,13 @@
-package store;
+package categories;
+
+import products.Product;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Category {
     private final CategoryNames name;
-    private final ArrayList<Product> productList = new ArrayList<Product>();
+    private List<Product> productList = new ArrayList<Product>();
 
     public Category(CategoryNames name) {
         this.name = name;
@@ -18,7 +21,7 @@ public class Category {
     public String toString() {
         StringBuilder info = new StringBuilder();
         info.append(String.format("Category name: %s. The list of products: %n", name));
-        for (Product product: productList) {
+        for (Product product : productList) {
             info.append(product.toString());
         }
         return info.toString();

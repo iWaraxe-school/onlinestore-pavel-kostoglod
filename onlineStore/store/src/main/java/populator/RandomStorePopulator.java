@@ -1,5 +1,6 @@
-package store;
+package populator;
 
+import categories.CategoryNames;
 import com.github.javafaker.Faker;
 
 public class RandomStorePopulator {
@@ -7,11 +8,16 @@ public class RandomStorePopulator {
 
     public String getProductName(CategoryNames category) {
         switch (category) {
-            case FRUIT: return faker.food().fruit();
-            case SPICE: return faker.food().spice();
-            case SUSHI: return faker.food().sushi();
-            case VEGETABLE: return faker.food().vegetable();
-            default: return null;
+            case FRUIT:
+                return faker.food().fruit();
+            case SPICE:
+                return faker.food().spice();
+            case SUSHI:
+                return faker.food().sushi();
+            case VEGETABLE:
+                return faker.food().vegetable();
+            default:
+                return null;
         }
     }
 

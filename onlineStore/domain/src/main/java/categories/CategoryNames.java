@@ -1,4 +1,4 @@
-package store;
+package categories;
 
 public enum CategoryNames {
     VEGETABLE, SPICE, SUSHI, FRUIT

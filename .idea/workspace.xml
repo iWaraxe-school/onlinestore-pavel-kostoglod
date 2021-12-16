@@ -4,22 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c81b12a-73e9-4850-b8ac-de218e1af6da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/onlineStore/store/src/main/java/store/RandomStorePopulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="6c81b12a-73e9-4850-b8ac-de218e1af6da" name="Changes" comment="- enum &quot;CategoryNames&quot; with names equal to necessary Faker methods&#10;- StoreApp class with main method&#10;- refactoring on existing classes">
       <change beforePath="$PROJECT_DIR$/.idea/onlinestore-pavel-kostoglod.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/onlinestore-pavel-kostoglod.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArchivedTasks.md" beforeDir="false" afterPath="$PROJECT_DIR$/ArchivedTasks.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/onlineStore/consoleApp/consoleApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/onlineStore/consoleApp/consoleApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/onlineStore/consoleApp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/onlineStore/consoleApp/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/onlineStore/domain/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/onlineStore/domain/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/onlineStore/store/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/onlineStore/store/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/onlineStore/store/src/main/java/store/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/onlineStore/store/src/main/java/store/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/onlineStore/store/src/main/java/store/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/onlineStore/store/src/main/java/store/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/onlineStore/store/src/main/java/store/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/onlineStore/domain/src/main/java/categories/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/onlineStore/store/src/main/java/store/CategoryNames.java" beforeDir="false" afterPath="$PROJECT_DIR$/onlineStore/domain/src/main/java/categories/CategoryNames.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/onlineStore/store/src/main/java/store/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/onlineStore/domain/src/main/java/products/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/onlineStore/store/src/main/java/store/RandomStorePopulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/onlineStore/store/src/main/java/populator/RandomStorePopulator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/onlineStore/store/src/main/java/store/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/onlineStore/store/src/main/java/store/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/onlineStore/store/src/main/java/utils/RandomStorePopulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/onlineStore/store/src/main/java/store/StoreApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/onlineStore/consoleApp/src/main/java/StoreApp/StoreApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -32,10 +39,13 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="03_OOP" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="#JAVA_HOME" />
   </component>
   <component name="ProjectId" id="219MHiWnqEpfQwHPOTVw9qJpkkt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -49,10 +59,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -63,14 +73,19 @@
       <recent name="C:\Users\pavelkostoglod\IdeaProjects\onlinestore-pavel-kostoglod\onlineStore\store\src" />
       <recent name="C:\Users\pavelkostoglod\IdeaProjects\onlinestore-pavel-kostoglod\onlineStore\store\src\main\resources" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.StoreApp">
     <configuration name="StoreApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="store.StoreApp" />
-      <module name="store" />
+      <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../../../Program Files/Java/jdk1.8.0_311" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="StoreApp.StoreApp" />
+      <module name="consoleApp" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="store.CategoryNames" />
+          <option name="PATTERN" value="categories.CategoryNames" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -83,7 +98,7 @@
       <module name="store" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="store.CategoryNames" />
+          <option name="PATTERN" value="categories.CategoryNames" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -91,8 +106,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.StoreApp" />
+      <item itemvalue="Application.Test" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StoreApp" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.StoreApp" />
         <item itemvalue="Application.Test" />
       </list>
@@ -135,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637591774215</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="- enum &quot;CategoryNames&quot; with names equal to necessary Faker methods&#10;- StoreApp class with main method&#10;- refactoring on existing classes">
+      <created>1638818437680</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1638818437680</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -154,9 +183,18 @@
     <MESSAGE value="Multi-module Maven project structure" />
     <MESSAGE value="change root-module name" />
     <MESSAGE value="misc.xml added. Idea says, that this untracked file prevents checkout" />
-    <option name="LAST_COMMIT_MESSAGE" value="misc.xml added. Idea says, that this untracked file prevents checkout" />
+    <MESSAGE value="- enum &quot;CategoryNames&quot; with names equal to necessary Faker methods&#10;- StoreApp class with main method&#10;- refactoring on existing classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="- enum &quot;CategoryNames&quot; with names equal to necessary Faker methods&#10;- StoreApp class with main method&#10;- refactoring on existing classes" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint type="java-exception">
+          <properties class="java.lang.NoSuchMethodException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="store.categoryList" language="JAVA" />
