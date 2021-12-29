@@ -12,7 +12,11 @@ import java.util.Random;
 public class Store {
     private final List<Category> categoryList = new ArrayList<Category>();
 
-    private void fillStore() {
+    public List<Category> getCategoryList() {
+        return categoryList;
+    }
+
+    public void fillStore() {
 
         RandomStorePopulator populator = new RandomStorePopulator();
 

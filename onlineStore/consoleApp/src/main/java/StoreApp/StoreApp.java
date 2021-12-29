@@ -1,10 +1,18 @@
 package StoreApp;
 
 
+import categories.Category;
+import categories.CategoryNames;
+import comparators.ProductComparator;
+import products.Product;
 import store.Store;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class StoreApp {
     public static void main(String[] args) {
@@ -12,7 +20,26 @@ public class StoreApp {
 //        store.fillStore();
 //        store.showInfo();
 
-        getStore.fillStore();
+        Category c1 = new Category(CategoryNames.SUSHI);
+        List<Product> lp = new ArrayList<>();
+        c1.setProductItem(new Product("B", 2.0, 2.0));
+        c1.setProductItem(new Product("B", 1.0, 1.0));
+        c1.setProductItem(new Product("B", 1.0, 1.0));
+        c1.setProductItem(new Product("B", 1.0, 2.0));
+        c1.setProductItem(new Product("A", 1.0, 1.0));
+        c1.setProductItem(new Product("A", 2.0, 1.0));
+        c1.setProductItem(new Product("A", 2.0, 2.0));
+        c1.setProductItem(new Product("A", 2.0, 3.0));
+        c1.setProductItem(new Product("A", 3.0, 3.0));
+        c1.setProductItem(new Product("A", 3.0, 2.0));
+        c1.setProductItem(new Product("A", 3.0, 1.0));
+
+        c1.sort();
+
+//        for (Category category: store.getCategoryList()) {
+//            category.sort();
+//        }
+
     }
 }
 
@@ -28,17 +55,13 @@ class getStore {
             showInfo.setAccessible(true);
             fillStore.invoke(store);
             showInfo.invoke(store);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+
+        } catch (ClassNotFoundException |
+                InstantiationException |
+                IllegalAccessException |
+                InvocationTargetException |
+                NoSuchMethodException e) {
             e.printStackTrace();
         }
     }
-
 }
