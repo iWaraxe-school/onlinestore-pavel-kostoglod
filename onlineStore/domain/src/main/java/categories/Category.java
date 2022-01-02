@@ -8,6 +8,11 @@ import java.util.List;
 
 public class Category {
     private final CategoryNames name;
+
+    public List<Product> getProductList() {
+        return productList;
+    }
+
     private List<Product> productList = new ArrayList<>();
 
     public Category(CategoryNames name) {

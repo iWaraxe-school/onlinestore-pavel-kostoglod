@@ -11,7 +11,7 @@ public class ProductComparator implements Comparator<Product> {
         return o1.getName().compareTo(o2.getName());
     }
 
-    public static Comparator<Product> getComparator(String sortKey) {
+    private static Comparator<Product> getComparator(String sortKey) {
         if("name".equals(sortKey)) {
             return Comparator.comparing(Product::getName);
         } else if ("price".equals(sortKey)) {
@@ -36,38 +36,9 @@ public class ProductComparator implements Comparator<Product> {
         }
         return pl;
 
-//        for (String key : sortingMap.keySet()) {
-//            switch (key) {
-//                case "name": {
-//                    if (sortingMap.get("name") == "asc") {
-//                        pl.sort(Comparator.comparing(Product::getName));
-//                    }
-//                    if (sortingMap.get("name") == "desc") {
-//                        pl.sort(Comparator.comparing(Product::getName).reversed());
-//                    }
-//                    break;
-//                }
-//
-//                case "price": {
-//                    if (sortingMap.get("price") == "asc") {
-//                        pl.sort(Comparator.comparingDouble(Product::getPrice));
-//                    }
-//                    if (sortingMap.get("price") == "desc") {
-//                        pl.sort(Comparator.comparingDouble(Product::getPrice).reversed());
-//                    }
-//                    break;
-//                }
-//
-//                case "rate": {
-//                    if (sortingMap.get("rate") == "asc") {
-//                        pl.sort(Comparator.comparingDouble(Product::getRate));
-//                    }
-//                    if (sortingMap.get("price") == "desc") {
-//                        pl.sort(Comparator.comparingDouble(Product::getRate).reversed());
-//                    }
-//                    break;
-//                }
-//            }
-//        }
+    }
+
+    public static void sortProductListbyPrice(List<Product> productList) {
+        productList.sort(getComparator("price").reversed());
     }
 }

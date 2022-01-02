@@ -1,45 +1,44 @@
 package StoreApp;
 
-
-import categories.Category;
-import categories.CategoryNames;
-import comparators.ProductComparator;
-import products.Product;
 import store.Store;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 public class StoreApp {
     public static void main(String[] args) {
-//        Store store = new Store();
-//        store.fillStore();
-//        store.showInfo();
+        try {
+            Store store = new Store();
+            store.fillStore();
 
-        Category c1 = new Category(CategoryNames.SUSHI);
-        List<Product> lp = new ArrayList<>();
-        c1.setProductItem(new Product("B", 2.0, 2.0));
-        c1.setProductItem(new Product("B", 1.0, 1.0));
-        c1.setProductItem(new Product("B", 1.0, 1.0));
-        c1.setProductItem(new Product("B", 1.0, 2.0));
-        c1.setProductItem(new Product("A", 1.0, 1.0));
-        c1.setProductItem(new Product("A", 2.0, 1.0));
-        c1.setProductItem(new Product("A", 2.0, 2.0));
-        c1.setProductItem(new Product("A", 2.0, 3.0));
-        c1.setProductItem(new Product("A", 3.0, 3.0));
-        c1.setProductItem(new Product("A", 3.0, 2.0));
-        c1.setProductItem(new Product("A", 3.0, 1.0));
+            boolean flag = true;
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-        c1.sort();
+            System.out.println("The store is created and filled with random products.");
+            while (flag) {
+                System.out.println("To interact with the store use next commands: sort, top, quit:");
+                String command = bufferedReader.readLine();
 
-//        for (Category category: store.getCategoryList()) {
-//            category.sort();
-//        }
-
+                switch (command) {
+                    case "sort":
+                        store.sort();
+                        break;
+                    case "top":
+                        store.top();
+                        break;
+                    case "quit":
+                        flag = false;
+                        break;
+                    default:
+                        System.out.println("Command is not supported");
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
