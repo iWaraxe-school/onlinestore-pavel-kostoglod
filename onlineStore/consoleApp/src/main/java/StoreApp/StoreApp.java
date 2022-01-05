@@ -1,18 +1,44 @@
 package StoreApp;
 
-
 import store.Store;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class StoreApp {
     public static void main(String[] args) {
-//        Store store = new Store();
-//        store.fillStore();
-//        store.showInfo();
+        try {
+            Store store = new Store();
+            store.fillStore();
 
-        getStore.fillStore();
+            boolean flag = true;
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+            System.out.println("The store is created and filled with random products.");
+            while (flag) {
+                System.out.println("To interact with the store use next commands: sort, top, quit:");
+                String command = bufferedReader.readLine();
+
+                switch (command) {
+                    case "sort":
+                        store.sort();
+                        break;
+                    case "top":
+                        store.top();
+                        break;
+                    case "quit":
+                        flag = false;
+                        break;
+                    default:
+                        System.out.println("Command is not supported");
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
@@ -28,17 +54,13 @@ class getStore {
             showInfo.setAccessible(true);
             fillStore.invoke(store);
             showInfo.invoke(store);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+
+        } catch (ClassNotFoundException |
+                InstantiationException |
+                IllegalAccessException |
+                InvocationTargetException |
+                NoSuchMethodException e) {
             e.printStackTrace();
         }
     }
-
 }
