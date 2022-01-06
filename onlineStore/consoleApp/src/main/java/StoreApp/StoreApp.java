@@ -11,7 +11,7 @@ import java.lang.reflect.Method;
 public class StoreApp {
     public static void main(String[] args) {
         try {
-            Store store = new Store();
+            Store store = Store.getInstance();
             store.fillStore();
 
             boolean flag = true;
