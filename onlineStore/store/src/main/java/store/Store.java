@@ -12,6 +12,22 @@ import java.util.Random;
 
 public class Store {
     private final List<Category> categoryList = new ArrayList<>();
+    private static volatile Store storeInstance;
+
+    private Store() {
+    }
+
+    public static Store getInstance() {
+        if (storeInstance != null) {
+            return storeInstance;
+        }
+        synchronized (Store.class) {
+            if (storeInstance == null) {
+                storeInstance = new Store();
+            }
+            return storeInstance;
+        }
+    }
 
     public List<Category> getCategoryList() {
         return categoryList;
@@ -25,12 +41,12 @@ public class Store {
 
     public void top() {
         List<Product> productList = new ArrayList<>();
-        for (Category category: categoryList) {
+        for (Category category : categoryList) {
             productList.addAll(category.getProductList());
         }
         ProductComparator.sortProductListbyPrice(productList);
         System.out.println("Top 5 products by price:");
-        for(int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.println(productList.get(i));
         }
     }
