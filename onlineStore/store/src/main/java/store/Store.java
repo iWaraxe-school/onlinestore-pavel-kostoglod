@@ -3,6 +3,7 @@ package store;
 import categories.Category;
 import categories.CategoryNames;
 import comparators.ProductComparator;
+import orders.Order;
 import populator.RandomStorePopulator;
 import products.Product;
 
@@ -12,7 +13,7 @@ import java.util.Random;
 
 public class Store {
     private final List<Category> categoryList = new ArrayList<>();
-    private static volatile Store storeInstance;
+    private static Store storeInstance;
 
     private Store() {
     }
@@ -51,6 +52,11 @@ public class Store {
         }
     }
 
+    public static void orderProduct(Product product) {
+        Order order = Order.getInstance();
+        order.addProductToOrder(product);
+    }
+
     public void fillStore() {
 
         RandomStorePopulator populator = new RandomStorePopulator();
@@ -72,7 +78,7 @@ public class Store {
         }
     }
 
-    private void showInfo() {
+    public void showInfo() {
         System.out.println("The list of the categories and products in the store:");
         for (Category category : categoryList) {
             System.out.println(category.toString());
