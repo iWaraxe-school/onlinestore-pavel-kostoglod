@@ -1,5 +1,6 @@
 package StoreApp;
 
+import db.DB_util;
 import store.Store;
 
 import java.io.BufferedReader;
@@ -7,12 +8,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.sql.SQLException;
 
 public class StoreApp {
     public static void main(String[] args) {
         try {
             Store store = Store.getInstance();
             store.fillStore();
+            DB_util db_util = new DB_util();
+            db_util.prepare_db();
 
             boolean flag = true;
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -36,7 +40,7 @@ public class StoreApp {
                         System.out.println("Command is not supported");
                 }
             }
-        } catch (IOException e) {
+        } catch (IOException | SQLException e) {
             e.printStackTrace();
         }
     }
