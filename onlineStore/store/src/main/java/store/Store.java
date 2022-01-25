@@ -3,6 +3,7 @@ package store;
 import categories.Category;
 import categories.CategoryNames;
 import comparators.ProductComparator;
+import db.DBService;
 import populator.RandomStorePopulator;
 import products.Product;
 
@@ -57,6 +58,9 @@ public class Store {
 
         for (CategoryNames category : CategoryNames.values()) {
             Category c = new Category(category);
+            DBService DBService = new DBService();
+            DBService.addCategory(c);
+
             Random random = new Random();
             int r = random.nextInt(9) + 1;
 
@@ -67,6 +71,8 @@ public class Store {
                         populator.getProductRate()
                 );
                 c.setProductItem(product);
+
+                DBService.addProduct(product, c);
             }
             categoryList.add(c);
         }

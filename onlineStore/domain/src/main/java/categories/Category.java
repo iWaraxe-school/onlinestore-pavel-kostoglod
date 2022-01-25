@@ -9,6 +9,10 @@ import java.util.List;
 public class Category {
     private final CategoryNames name;
 
+    public String getName() {
+        return name.toString();
+    }
+
     public List<Product> getProductList() {
         return productList;
     }
