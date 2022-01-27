@@ -1,17 +1,18 @@
 package StoreApp;
 
-import categories.Category;
-import org.apache.commons.lang3.math.NumberUtils;
-import products.Product;
+import orders.OrderListCleanupTask;
 import store.Store;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Timer;
 
 public class StoreInteraction {
     public static void runStoreInteraction(Store store) {
         try {
+            Timer timer = new Timer();
+            timer.schedule(new OrderListCleanupTask(), 0, 120000);
             boolean flag = true;
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -28,44 +29,7 @@ public class StoreInteraction {
                         store.top();
                         break;
                     case "order":
-                        boolean finish = false;
-                        Store.getInstance().showInfo();
-                        System.out.printf("To order the product please enter category number from 1 to %d. To stop ordering use: stop%n",
-                                store.getCategoryList().size());
-                        String command2 = bufferedReader.readLine();
-                        while (!finish) {
-                            if (NumberUtils.isDigits(command2)) {
-                                if (Integer.parseInt(command2)>=1 && Integer.parseInt(command2)<=store.getCategoryList().size()) {
-                                    int categoryIndex = Integer.parseInt(command2);
-                                    Category selectedCategory = store.getCategoryList().get(categoryIndex - 1);
-                                    System.out.printf("Please enter product number from 1 to %d: ",
-                                            selectedCategory.getProductList().size());
-                                    String command3 = bufferedReader.readLine();
-                                    if (NumberUtils.isDigits(command3)) {
-                                        if (Integer.parseInt(command3)>=1 && Integer.parseInt(command3)<=selectedCategory.getProductList().size()) {
-                                            int productIndex = Integer.parseInt(command3);
-                                            Product selectedProduct = selectedCategory.getProductList().get(productIndex - 1);
-                                            Store.orderProduct(selectedProduct);
-                                            break;
-                                        } else {
-                                            System.out.println("No such product");
-                                            break;
-                                        }
-                                    } else {
-                                        System.out.println("The command is not supported");
-                                        break;
-                                    }
-                                } else {
-                                    System.out.println("No such category");
-                                    break;
-                                }
-                            } else if (command2.equals("stop")) {
-                                finish = true;
-                            } else {
-                                System.out.println("The command is not supported");
-                                break;
-                            }
-                        }
+                        store.order();
                         break;
                     case "quit":
                         flag = false;
