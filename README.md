@@ -1,17 +1,17 @@
-### 7. Multithreading
+### 8. HTTP
 
 ----
 #### Materials
 
-[Concurrency](https://docs.oracle.com/javase/tutorial/essential/concurrency/)
-[L10 from slide 24](https://coherentsolutions.sharepoint.com/sites/training-center/_layouts/15/WopiFrame.aspx?sourcedoc=%7b64853C24-C830-4C50-B8B4-723AFC490668%7d&file=L10.pptx&action=default) 
-[L11 from](https://coherentsolutions.sharepoint.com/sites/training-center/_layouts/15/WopiFrame.aspx?sourcedoc=%7b0D5F5DD0-CBDE-4EB7-8D17-CDEC874B3F64%7d&file=L11.pptx&action=default) 
-
+[HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
+[HTTP simple servers (plain java/lib)](https://syntaxcorrect.com/Java/5_Ultra_Lightweight_Http_Server_Implementations_in_Java_for_Blazing_Fast_Microservices_APIs_or_Even_Websites)
+[Basic auth](https://en.wikipedia.org/wiki/Basic_access_authentication)
+[RestAssured](https://rest-assured.io/)
 #### Task
 
-Please implement `create order` functionality. Each order should be processed in separate thread. Whe user select product
-, generate the random int from 1 to 30, and create thread that will process selected order for selected time, and after it
-place the product in another collection (for example, purchased goods).
-And create one more thread, that will be executed periodically, e.g. ones in 2 mins, that will clean up purchased collection.
-
-You can implement this in "native" java methods  but better and simplier to use [java.util.concurrent](https://habr.com/ru/company/luxoft/blog/157273/) package.  
+The same task as previous, but to store and get store data you should implement HTTP server (use included in java or external lib), 
+that will handle in memory or DB your categories, but you will receive them via HTTP protocol.
+Also, you should implement `add product to cart` logic in this server, and process this request via HTTP.
+And finally, your HTTP service should be secured with basic authentication  (credentials can be hardcoded).
+For Http client side you also can use default (included in java) or use RestAssured. 
+   

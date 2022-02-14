@@ -7,6 +7,8 @@ import orders.Order;
 import org.apache.commons.lang3.math.NumberUtils;
 import populator.ConsoleAndDBPopulator;
 import populator.HTTPPopulator;
+import db.DBService;
+import populator.RandomStorePopulator;
 import products.Product;
 
 import java.io.BufferedReader;
