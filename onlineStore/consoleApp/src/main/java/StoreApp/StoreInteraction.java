@@ -9,7 +9,10 @@ import java.io.InputStreamReader;
 import java.util.Timer;
 
 public class StoreInteraction {
+
     public static void runStoreInteraction(Store store) {
+        store.fillStore("HTTP");
+
         try {
             Timer timer = new Timer();
             timer.schedule(new OrderListCleanupTask(), 0, 120000);
