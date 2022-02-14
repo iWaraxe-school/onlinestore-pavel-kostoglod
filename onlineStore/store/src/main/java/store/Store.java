@@ -1,10 +1,12 @@
 package store;
 
 import categories.Category;
-import categories.CategoryNames;
 import comparators.ProductComparator;
+import http.Server;
 import orders.Order;
 import org.apache.commons.lang3.math.NumberUtils;
+import populator.ConsoleAndDBPopulator;
+import populator.HTTPPopulator;
 import db.DBService;
 import populator.RandomStorePopulator;
 import products.Product;
@@ -14,7 +16,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Store {
     private final List<Category> categoryList = new ArrayList<>();
@@ -108,29 +109,19 @@ public class Store {
         }
     }
 
-    public void fillStore() {
+    public void fillStore(String mode) {
 
-        RandomStorePopulator populator = new RandomStorePopulator();
+        if (mode.equals("DB")) {
+            ConsoleAndDBPopulator consoleAndDBPopulator = new ConsoleAndDBPopulator();
+            consoleAndDBPopulator.fillStore();
+        } else if (mode.equals("HTTP")) {
+            Server httpServer = new Server();
+            httpServer.startServer();
 
-        for (CategoryNames category : CategoryNames.values()) {
-            Category c = new Category(category);
-            DBService DBService = new DBService();
-            DBService.addCategory(c);
-
-            Random random = new Random();
-            int r = random.nextInt(9) + 1;
-
-            for (int i = 0; i < r; i++) {
-                Product product = new Product(
-                        populator.getProductName(category),
-                        populator.getProductPrice(),
-                        populator.getProductRate()
-                );
-                c.setProductItem(product);
-
-                DBService.addProduct(product, c);
-            }
-            categoryList.add(c);
+            HTTPPopulator httpPopulator = new HTTPPopulator();
+            httpPopulator.fillStore();
+        } else {
+            throw new IllegalArgumentException("Illegal argument");
         }
     }
 

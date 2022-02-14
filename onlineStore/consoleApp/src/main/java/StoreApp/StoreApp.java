@@ -8,7 +8,6 @@ import java.lang.reflect.Method;
 public class StoreApp {
     public static void main(String[] args) {
         Store store = Store.getInstance();
-        store.fillStore();
         StoreInteraction.runStoreInteraction(store);
     }
 }
